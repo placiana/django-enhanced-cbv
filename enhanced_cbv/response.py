@@ -89,7 +89,7 @@ class CSVTemplateResponse(TemplateResponse):
             writer = UnicodeWriter(buffer)
 
             for row in self.rows:
-                writer.writerow([unicode(value).encode('utf-8') for value
+                writer.writerow([unicode(value) for value
                                  in row])
 
             # Get the value of the StringIO buffer and write it to the response.
