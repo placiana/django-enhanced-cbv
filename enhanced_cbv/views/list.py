@@ -29,10 +29,16 @@ class ListFilteredMixin(object):
         if getattr(self, 'constructed_filter', None):
             return self.constructed_filter
         else:
-            f = self.get_filter_set()(self.request.GET,
+            f = self.get_filter_set()(self.get_filter_data(),
                                       queryset=self.get_base_queryset())
             self.constructed_filter = f
             return f
+    
+    def get_filter_data(self):
+        """
+        This method returns filter parameters stored in GET request.
+        """
+        return self.request.GET
 
     def get_queryset(self):
         return self.get_constructed_filter().qs
