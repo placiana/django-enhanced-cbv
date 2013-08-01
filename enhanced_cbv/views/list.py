@@ -44,7 +44,10 @@ class ListFilteredMixin(object):
         return self.get_constructed_filter().qs
 
     def get_context_data(self, **kwargs):
-        kwargs.update({'filter': self.get_constructed_filter()})
+        kwargs.update({
+            'filter': self.get_constructed_filter(),
+            'filter_exists': True,
+        })
         return super(ListFilteredMixin, self).get_context_data(**kwargs)
 
 
