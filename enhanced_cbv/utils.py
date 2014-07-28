@@ -31,10 +31,7 @@ class UnicodeWriter:
     def writerow(self, row):
         encoded_row = []
         for s in row:
-            try:
-                encoded_row.append(s.encode("utf-8"))
-            except AttributeError:
-                encoded_row.append(s)
+            encoded_row.append(s)
 
         self.writer.writerow(encoded_row)
         # Fetch UTF-8 output from the queue ...
