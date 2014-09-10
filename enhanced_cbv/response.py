@@ -1,9 +1,6 @@
 from django.template.response import TemplateResponse
 from enhanced_cbv.utils import fetch_resources, UnicodeWriter
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+from StringIO import StringIO
 
 
 class PDFTemplateResponse(TemplateResponse):
