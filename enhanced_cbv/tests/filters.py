@@ -1,6 +1,6 @@
 import django_filters
 
-from enhanced_cbv.tests.models import Author
+from .models import Author
 
 class AuthorFilterSet(django_filters.FilterSet):
     class Meta:
