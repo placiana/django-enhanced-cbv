@@ -229,7 +229,7 @@ class ModelFormSetsMixin(FormSetsMixin):
 
 
 class InlineFormSetsMixin(ModelFormSetsMixin, ModelFormMixin):
-    """ 
+    """
     A mixin that provides a way to show and handle a model with it's inline
     formsets
     """

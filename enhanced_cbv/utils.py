@@ -1,5 +1,7 @@
-import os, csv, codecs, cStringIO
+import os, csv, codecs
+
 from django.conf import settings
+from six.moves import cStringIO
 
 
 def fetch_resources(uri, rel):
