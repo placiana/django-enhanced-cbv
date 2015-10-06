@@ -19,14 +19,14 @@ class PDFTemplateResponse(TemplateResponse):
     logging.getLogger("ho.pisa").addHandler(PisaNullHandler())
 
     def __init__(self, request, template, context=None,
-                 mimetype='application/pdf', status=None, content_type=None,
-                 current_app=None, filename=None):
+                 content_type='application/pdf', filename=None,
+                 *args, **kwargs):
         """Simple adds a default mimetype for PDFs and a filename"""
 
         self.filename = filename
 
         super(PDFTemplateResponse, self).__init__(request,
-            template, context, mimetype, status, content_type)
+            template, context, content_type, *args, **kwargs)
 
     def render(self):
         """This is the tricky part, whith the rendered_content create a PDF"""
@@ -65,15 +65,15 @@ class CSVTemplateResponse(TemplateResponse):
 
 
     def __init__(self, request, template, context=None,
-                 mimetype='text/csv', status=None, content_type=None,
-                 current_app=None, filename=None, rows=None):
+                 content_type='text/csv', filename=None, rows=None,
+                 *args, **kwargs):
         """Simple adds a default mimetype for CSVs and a filename"""
 
         self.filename = filename
         self.rows = rows
 
         super(CSVTemplateResponse, self).__init__(request,
-            template, context, mimetype, status, content_type)
+            template, context, content_type, *args, **kwargs)
 
     def render(self):
         """This is the tricky part, whith the rendered_content create a CSV"""
