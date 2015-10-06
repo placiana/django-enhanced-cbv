@@ -28,7 +28,7 @@ class UnicodeWriter:
 
     def writerow(self, row):
         # write to the target stream
-        data = u','.join(row) + u'\n'
+        data = ','.join(row) + '\n'
         self.stream.write(data)
 
     def writerows(self, rows):

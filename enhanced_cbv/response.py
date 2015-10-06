@@ -1,5 +1,6 @@
 from django.template.response import TemplateResponse
 from enhanced_cbv.utils import fetch_resources, UnicodeWriter
+import six
 from six.moves import StringIO
 
 
@@ -86,7 +87,7 @@ class CSVTemplateResponse(TemplateResponse):
             writer = UnicodeWriter(buffer)
 
             for row in self.rows:
-                writer.writerow([unicode(value) for value
+                writer.writerow([six.text_type(value) for value
                                  in row])
 
             # Get the value of the StringIO buffer and write it to the response.
