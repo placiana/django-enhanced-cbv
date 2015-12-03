@@ -62,7 +62,7 @@ class EnhancedModelFormSet(EnhancedFormSet):
     formset_class = BaseModelFormSet
     model = None
     queryset = None
-    fields = None
+    fields = '__all__'
     exclude = None
 
     def get_factory(self):
