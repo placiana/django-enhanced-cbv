@@ -257,7 +257,7 @@ class InlineFormSetsMixin(ModelFormSetsMixin, ModelFormMixin):
         Returns the keyword arguments for the formsets factory
         """
         return {
-            'parent_model': self.object.__class__,
+            'parent_model': self.model,
         }
 
     def form_valid(self, form):
@@ -301,7 +301,7 @@ class ProcessInlineFormSetsView(View):
         try:
             self.object = self.get_object()
         except AttributeError:
-            self.object = self.model()
+            self.object = None  # self.model()
 
         # ProcessFormView
         form_class = self.get_form_class()
@@ -317,7 +317,7 @@ class ProcessInlineFormSetsView(View):
         try:
             self.object = self.get_object()
         except AttributeError:
-            self.object = self.model()
+            self.object = None  # self.model()
 
         # ProcessFormView
         form_class = self.get_form_class()
